@@ -1,3 +1,6 @@
+# I wouldn't have been able to do this myself. Study this more.
+
+
 n, m = map(int, input().split())
 
 graph = []
