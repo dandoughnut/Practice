@@ -147,3 +147,7 @@ elif A==B or B==C or A==C:
         print(1000+C*100)
 else:
     print(max(A,B,C)*100)
+
+# 15439
+N = int(input())
+print(N* (N-1))

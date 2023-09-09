@@ -109,3 +109,43 @@ def command(N):
             else:
                 print(-1)
 command(N)
+
+# 2164
+from collections import deque
+
+N = int(input())
+queue = deque([])
+for i in range(N):
+    queue.append(i+1)
+while len(queue) > 1:
+    queue.popleft()
+    queue.append(queue.popleft())
+print(queue[-1])
+
+
+# 28279
+import sys
+from collections import deque
+
+n=int(input())
+deck = deque()
+for i in range(n):
+    o=list(map(int, sys.stdin.readline().strip().split()))
+    c=o[0]
+    l=len(deck)
+    if c==1:
+        deck.appendleft(o[1])
+    elif c==2:
+        deck.append(o[1])
+    elif c==3:
+        print(deck.popleft() if l else -1)
+    elif c==4:
+        print(deck.pop() if l else -1)
+    elif c==5:
+        print(len(deck))
+    elif c==6:
+        print(0 if l else 1)
+    elif c==7:
+        print(deck[0] if l else -1)
+    elif c==8:
+        print(deck[-1] if l else -1)

@@ -1,17 +1,26 @@
-# 5073
+import sys
+from collections import deque
 
-while True:
-    try:
-        a, b, c = map(int, input().split())
-        if a == 0 and b == 0 and c == 0:
-            break
-        elif a == 0 or b == 0 or c == 0 or max(a, b, c) >= min(a+b, b+c, c+a):
-            print('Invalid')
-        elif a == b and b == c and c == a:
-            print('Equilateral')
-        elif a == b or b== c or c == a:
-            print('Isosceles')
+input = sys.stdin.readline
+
+
+def printer(m, queue):
+    cnt = 0
+    while queue:
+        max_pri = max(queue, key = lambda x: x[1])[1]
+        front = queue.popleft()
+        if front[1] == max_pri:
+            cnt += 1
+            if front[0] == m:
+                break
         else:
-            print('Scalene')
-    except:
-        break
+            queue.append(front)
+    return cnt
+
+tc = int(input())
+
+for _ in range(tc):
+    n, m = map(int, input().split())
+    docs = list(map(int, input().split()))
+    queue = deque([(i, docs[i]) for i in range(len(docs))])
+    print(printer(m, queue))
