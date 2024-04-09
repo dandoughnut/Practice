@@ -37,7 +37,10 @@ class MyApp extends StatelessWidget {
               color: Colors.red[600],
               child: Column(
                 children: <Widget> [
-                  Image.network('https://picsum.photos/200?image=30', width: 100, height: 100, fit: BoxFit.cover,),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Image.network('https://picsum.photos/200?image=30', width: 100, height: 100, fit: BoxFit.cover,),
+                  )
                   const SizedBox(height: 20.0,),
                   Image.network('https://picsum.photos/200?image=30', width: 100, height: 100, fit: BoxFit.cover,),
                 ]
