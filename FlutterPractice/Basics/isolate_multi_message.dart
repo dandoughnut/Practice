@@ -51,6 +51,5 @@ Future<void> _readFile(SendPort p) async {
       break;
     }
   }
-  print('Spawned isolate finished.');
-  Isolate.exit();
+  print('Spawned isolate finished.')
 }
